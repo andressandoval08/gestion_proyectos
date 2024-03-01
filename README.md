@@ -16,11 +16,11 @@
 
 
 ## Conexion a BD
-mediante la siguiente ruta (src\main\resources\application.properties) se debe configurar unicamente el username y contraseña de acuerdo a su MySQL ya que si las credenciales no son las correctas se generara un error de conexion con la base de datos 
+Mediante la siguiente ruta (src\main\resources\application.properties) se debe configurar unicamente el username y contraseña de acuerdo a su MySQL ya que si las credenciales no son las correctas se generara un error de conexion con la base de datos 
 
 ## Estructura 
 Se crearon 5 paquetes:
-1. Modelo: es el encargado 
+1. Modelo: en el cual se crearon las tablas con las respectivas relaciones vistas en el esquema (Usuario, Proyecto, para la base de datos 
  
 
 
