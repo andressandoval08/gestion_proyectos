@@ -15,13 +15,24 @@
 ![image](https://github.com/andressandoval08/gestion_proyectos/assets/124326168/c013f358-5c7c-4c88-a072-98577aa52f92)
 
 
-## Conexion a BD
-Mediante la siguiente ruta (src\main\resources\application.properties) se debe configurar unicamente el username y contraseña de acuerdo a su MySQL ya que si las credenciales no son las correctas se generara un error de conexion con la base de datos 
+## Conexion a BD y ejecucion del proyecto
+Mediante la siguiente ruta (**src\main\resources\application.properties**) se debe configurar unicamente el username y contraseña de acuerdo a su MySQL ya que si las credenciales no son las correctas se generara un error de conexion con la base de datos.
+Despues de realizar esto, para la ejecucion se debe estar parado en la clase (**src\main\java\asandovalarq\gestorproyectos\GestorproyectosApplication.java**) donde esta realizara la creacion de la base de datos con sus respectivas tablas. 
+
 
 ## Estructura 
 Se crearon 5 paquetes:
-1. Modelo: en el cual se crearon las tablas con las respectivas relaciones vistas en el esquema (Usuario, Proyecto, para la base de datos 
+1. Modelo: En el cual se crearon las tablas con las respectivas relaciones vistas en el esquema (Usuario, Proyecto, AsignacionProyectoUsuario, HistoriaUsuario y Tarea) para la base de datos.
+
+2. Repositorio: En esta Interfaz de repositorios proporcionamos los metodos CRUD a travez de "JpaRepository" lo cual añade un metodos de consulta personalizados, implementados automaticamente por Spring Data JPA en tiempo de ejecucion.
+
+3. Servicio: Encapsular la logica relacionada a cada modelo, proporcionando los metodos para interactuar con la base de datos.
+
+4. Controlador: Manejar las solicitudes relacionadas a los modelos interactuando con su respectivo servicio.
+
+5. Excepciones: Mostrar un mensaje por si hay algun error con el proyecto  
  
+Asi mismo la ruta Test:
 
 
 
