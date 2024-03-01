@@ -22,7 +22,7 @@ Despues de realizar esto, para la ejecucion se debe estar parado en la clase (**
 
 ## Estructura 
 Se crearon 5 paquetes:
-1. Modelo: En el cual se crearon las tablas con las respectivas relaciones vistas en el esquema (Usuario, Proyecto, AsignacionProyectoUsuario, HistoriaUsuario y Tarea) para la base de datos.
+1. Modelo: En el cual se crearon las tablas con las respectivas relaciones vistas en el esquema (Usuario, Proyecto, AsignacionProyectoUsuario, HistoriaUsuario y Tarea) para la base de datos. No se agrega Id, ya que se utilizo una anotacion de Springboot para que se realice de manera incremental **@GeneratedValue(strategy = GenerationType.IDENTITY)**.
 
 2. Repositorio: En esta Interfaz de repositorios proporcionamos los metodos CRUD a travez de "JpaRepository" lo cual añade un metodos de consulta personalizados, implementados automaticamente por Spring Data JPA en tiempo de ejecucion.
 
@@ -32,7 +32,10 @@ Se crearon 5 paquetes:
 
 5. Excepciones: Mostrar un mensaje por si hay algun error con el proyecto  
  
-Asi mismo la ruta Test:
+Asi mismo la ruta Test: src\test\java\asandovalarq\gestorproyectos\controladorTest\ControladorTest.java
+
+## DOCUMENTACION POSTMAN
+Subidas en avata.
 
 
 
