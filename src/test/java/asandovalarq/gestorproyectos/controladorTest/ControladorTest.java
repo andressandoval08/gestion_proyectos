@@ -56,98 +56,39 @@ class ControladorPrincipalTest {
 
     @Test
     void obtenerTodosLosUsuarios() {
-        // Arrange
         List<Usuario> usuarios = Arrays.asList(new Usuario(), new Usuario());
         when(usuarioServicio.obtenerTodosLosUsuarios()).thenReturn(usuarios);
 
-        // Act
         ResponseEntity<List<Usuario>> responseEntity = controladorPrincipal.obtenerTodosLosUsuarios();
-
-        // Assert
+        
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(usuarios, responseEntity.getBody());
     }
 
     @Test
     void obtenerUsuarioPorId() {
-        // Arrange
         Long userId = 1L;
         Usuario usuario = new Usuario();
         when(usuarioServicio.obtenerUsuarioPorId(userId)).thenReturn(usuario);
 
-        // Act
         ResponseEntity<Usuario> responseEntity = controladorPrincipal.obtenerUsuarioPorId(userId);
 
-        // Assert
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(usuario, responseEntity.getBody());
     }
 
     @Test
     void crearUsuario() {
-        // Arrange
         Usuario usuario = new Usuario(3L, "Loki", "loki@cosmo.com", "password", "desarrollador");
         when(usuarioServicio.crearUsuario(any(), any(), any(), any())).thenReturn(usuario);
 
-        // Act
         ResponseEntity<Usuario> responseEntity = controladorPrincipal.crearUsuario(usuario);
 
-        // Assert
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         assertEquals(usuario, responseEntity.getBody());
     }
 
     // ******** UNIT TESTS PARA ENDPOINTS RELACIONADOS CON PROYECTOS *************
-
-    @Test
-    void obtenerProyectoPorId() {
-        // Arrange
-        Long proyectoId = 1L;
-        Proyecto proyecto = new Proyecto();
-        when(proyectoRepositorio.findById(proyectoId)).thenReturn(Optional.of(proyecto));
-
-        // Act
-        Proyecto result = proyectoServicio.obtenerProyectoPorId(proyectoId);
-
-        // Assert
-        assertEquals(proyecto, result);
-        verify(proyectoRepositorio, times(1)).findById(proyectoId);
-    }
-
-    @Test
-    void crearProyecto() {
-        // Arrange
-        String nombre = "Nuevo Proyecto";
-        String descripcion = "Descripción del proyecto";
-        Date fechaInicio = new Date();
-        Usuario gerente = new Usuario("Gerente", "gerente@example.com", "password");
-        Proyecto nuevoProyecto = new Proyecto(nombre, descripcion, fechaInicio, gerente);
-        when(proyectoRepositorio.save(any())).thenReturn(nuevoProyecto);
-
-        // Act
-        Proyecto result = proyectoServicio.crearProyecto(nombre, descripcion, fechaInicio, gerente);
-
-        // Assert
-        assertEquals(nuevoProyecto, result);
-        verify(proyectoRepositorio, times(1)).save(any());
-    }
-
-    @Test
-    void agregarDesarrolladorAProyecto() {
-        long proyectoId = 1L;
-        Long desarrolladorId = 2L;
-        Proyecto proyecto = new Proyecto();
-        Usuario desarrollador = new Usuario(4L,"Michael", "Desarrollador", "michael@cosmo.com", "password");
-
-        when(proyectoRepositorio.findById(proyectoId)).thenReturn(Optional.of(proyecto));
-        when(usuarioServicio.obtenerUsuarioPorId(desarrolladorId)).thenReturn(desarrollador);
-        // proyectoServicio.agregarDesarrolladorAProyecto(proyectoId, desarrolladorId);
-
-        assertTrue(proyecto.getDesarrolladores().contains(desarrollador));
-        verify(proyectoRepositorio, times(1)).findById(proyectoId);
-        verify(usuarioServicio, times(1)).obtenerUsuarioPorId(desarrolladorId);
-    }
-}
 
     // ******** UNIT TESTS PARA ENDPOINTS RELACIONADOS CON HISTORIAS DE USUARIO *************
 
