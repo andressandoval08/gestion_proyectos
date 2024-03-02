@@ -3,7 +3,7 @@
 - Java version "17.0.6" 2023-01-17 LTS
 - id 'org.springframework.boot' version '3.2.3'
 
-**dependencias utilizadas son:**
+**Dependencias utilizadas son:**
 1. Spring Web: Soporte para el desarrollo de aplicaciones y páginas webs basadas en Java
 2. JPA: API de persistencia desarrollada para la plataforma Java EE. Maneja datos relacionales en aplicaciones usando la Plataforma Java.
 3. MySQL driver: Permite comunicarnos con el motor de base de datos,
